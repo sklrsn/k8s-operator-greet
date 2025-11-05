@@ -1,0 +1,27 @@
+# This rule is not used by the project k8s-operator-cm itself.
+# It is provided to allow the cluster admin to help manage permissions for users.
+#
+# Grants full permissions ('*') over hello.sklrsn.in.
+# This role is intended for users authorized to modify roles and bindings within the cluster,
+# enabling them to delegate specific permissions to other users or groups as needed.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: k8s-operator-cm
+    app.kubernetes.io/managed-by: kustomize
+  name: greeter-admin-role
+rules:
+- apiGroups:
+  - hello.sklrsn.in
+  resources:
+  - greeters
+  verbs:
+  - '*'
+- apiGroups:
+  - hello.sklrsn.in
+  resources:
+  - greeters/status
+  verbs:
+  - get

@@ -1,0 +1,10 @@
+apiVersion: hello.sklrsn.in/v1
+kind: Greeter
+metadata:
+  labels:
+    app.kubernetes.io/name: k8s-operator-cm
+    app.kubernetes.io/managed-by: kustomize
+  name: greeter-sample
+spec:
+  name: "Rob"
+  message: "Good morning!"
